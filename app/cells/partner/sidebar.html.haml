@@ -1,0 +1,6 @@
+.block
+  %h5 友情链接
+  %ul
+    -for partner in @partners
+      %li
+        =link_to partner.title,partner.url

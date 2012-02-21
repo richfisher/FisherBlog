@@ -1,0 +1,17 @@
+- set_page_title 'Results of tag '+ params[:id]
+
+#tag_page
+  %h2
+    Tag:
+    =params[:id]
+
+  %br
+
+  %table
+    %tr
+      %th Title
+      %th Created at
+    -for article in @articles
+      %tr
+        %td=link_to article.title,article_path(article),:target => '_blank'
+        %td=format_datetime article.created_at

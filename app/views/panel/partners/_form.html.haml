@@ -1,0 +1,16 @@
+= form_for [:panel,@partner] do |f|
+  -if @partner.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@partner.errors.count, "error")} prohibited this partner from being saved:"
+      %ul
+        - @partner.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :url
+    = f.text_field :url
+  .actions
+    = f.submit 'Save'

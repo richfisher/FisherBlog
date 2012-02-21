@@ -1,0 +1,15 @@
+- set_page_title 'Result of ' + @pattern
+
+#article_search_page
+  %h3
+    Search:
+    =@pattern
+  -for article in @articles
+    .article.clear
+      .title.clear
+        .left
+          =link_to_title_with_highlight article,@pattern
+        .datetime
+          =format_datetime article.created_at
+      .info
+        =highlight_tags_and_contents(article,@pattern)

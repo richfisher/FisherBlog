@@ -1,0 +1,12 @@
+#header.clear
+  .container
+    .brand
+      =link_to 'RichFisher.Me','/'
+    %ul.nav
+      %li=link_to 'Panel',panel_path
+      %li=link_to 'Articles',panel_articles_path
+      %li=link_to 'Notes',panel_notes_path
+      %li=link_to 'Categories',panel_categories_path
+      %li=link_to 'Partners',panel_partners_path
+    .panel
+      =link_to 'Logout',logout_path,:method=>:delete

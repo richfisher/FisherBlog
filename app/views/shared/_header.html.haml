@@ -1,0 +1,22 @@
+#header.clear
+  .container
+    .brand
+      =link_to 'RichFisher.Me','/'
+    %ul.nav
+      %li=link_to 'Articles',articles_path
+      %li=link_to 'Notes',notes_path
+      %li=link_to 'Works',works_path
+      %li=link_to 'Github','https://github.com/richfisher'
+      %li=link_to 'About','#'
+      %li.search
+        = form_tag(search_articles_path,:method=>:get) do
+          =text_field_tag :search,'搜索',:id=>'search_content'
+    %ul.panel
+      -if admin_signed_in?
+        %li=link_to "New Article",new_panel_article_path
+        |
+        %li=link_to 'Panel',panel_path
+        |
+        %li=link_to 'Logout',logout_path,:method=>:delete
+      - else
+        %li= link_to 'Login',login_path,:class=>'hidden'

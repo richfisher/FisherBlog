@@ -1,0 +1,13 @@
+- set_page_title @category.name
+
+#category_page
+  .title.clear
+    %h2
+      = @category.name
+  .articles
+    -for article in @category.articles
+      .article
+        .title
+          =link_to article.title,article_path(article)
+        .datetime
+          =format_datetime article.created_at

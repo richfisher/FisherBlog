@@ -1,0 +1,29 @@
+= form_for [:panel,@article],:html=>{:id=>'article_form'} do |f|
+  -if @article.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+      %ul
+        - @article.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title,'标题:'
+    = f.text_field :title,:size=>'100'
+  .field
+    =f.label :category_id,'类目:'
+    =f.select :category_id,options_from_collection_for_select(Category.all,'_id','name',@article.category_id)
+  .field
+    = f.label :tag_list,'标签:'
+    = f.text_field :tag_list,:size=>'100'
+  .field
+    -#= f.label :content,'内容'
+    = f.cktext_area :content,:toolbar=>'fisher', :width => 800, :height => 400
+  -if @article.created_at.present?
+    .field
+      = f.label :created_at,'创建时间:'
+      = f.datetime_select :created_at
+    -#.field
+    -#  = f.label :updated_at,'修改时间:'
+    -#  = f.datetime_select :updated_at
+  .actions
+    = f.submit 'Save'

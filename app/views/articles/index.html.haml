@@ -1,0 +1,6 @@
+#articles_page
+  .left
+    = render :partial => 'articles/article',:collection => @articles
+    = paginate @articles
+  =render 'shared/sidebar'
+

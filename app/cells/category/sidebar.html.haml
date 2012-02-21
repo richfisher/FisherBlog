@@ -1,0 +1,8 @@
+.block.categories
+  %h5 Categories
+  %ul
+    - for category in @categories
+      %li
+        =link_to category_path(category) do
+          =category.name
+          ( #{category.articles.size} )

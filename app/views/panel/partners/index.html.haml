@@ -1,0 +1,21 @@
+%h1 Listing partners
+
+%table
+  %tr
+    %th Title
+    %th Url
+    -#%th
+    %th
+    %th
+
+  - @partners.each do |partner|
+    %tr
+      %td= partner.title
+      %td= partner.url
+      -#%td= link_to 'Show', [:panel,partner]
+      %td= link_to 'Edit', edit_panel_partner_path(partner)
+      %td= link_to 'Destroy', [:panel,partner], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Partner', new_panel_partner_path

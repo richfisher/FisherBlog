@@ -1,0 +1,21 @@
+.sidebar
+
+  .block.about_me
+    %h5 About Me
+    =image_tag 'me3.jpg',:width=>'190px'
+    潘志鹏，华南师范大学电子商务应届毕业生。
+    Web Developer
+
+  .gmail
+    =link_to 'mailto:richfisher.pan@gmail.com' do
+      -image_tag 'gmail.gif'
+
+  = render_cell :category, :sidebar
+
+  = render_cell :tag, :sidebar
+
+  = render_cell :partner, :sidebar
+
+  -#.block
+  -#  %h5 友情链接
+

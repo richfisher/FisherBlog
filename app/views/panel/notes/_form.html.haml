@@ -1,0 +1,20 @@
+= form_for [:panel,@note] do |f|
+  -if @note.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@note.errors.count, "error")} prohibited this note from being saved:"
+      %ul
+        - @note.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    -#= f.label :content,'内容'
+    = f.cktext_area :content,:toolbar=>'fisher', :width => 800, :height => 400
+  -if @note.created_at.present?
+    .field
+      = f.label :created_at,'创建时间:'
+      = f.datetime_select :created_at
+    -#.field
+    -#  = f.label :updated_at,'修改时间:'
+    -#  = f.datetime_select :updated_at
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,9 @@
+#notes_page
+  %h1 Notes
+
+  - for note in @notes
+    .note.clear
+      .left
+        =raw note.content
+      .right
+        =format_datetime note.created_at

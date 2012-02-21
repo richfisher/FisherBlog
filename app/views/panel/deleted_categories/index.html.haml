@@ -1,0 +1,16 @@
+#categories_page
+  =link_to "Category List",panel_categories_path,:class => 'btn primary'
+  =link_to "Deleted",panel_deleted_categories_path,:class => 'btn info'
+  =link_to 'New Category', new_panel_category_path,:class => 'btn error'
+  %table
+    %tr
+      %th Title
+      %th
+      %th
+    -for category in @categories
+      %tr
+        %td=category.name
+        %td=link_to "restore",restore_panel_deleted_category_path(category.id)
+        %td=link_to "destroy",panel_deleted_category_path(category.id),:method => :delete,
+                              :confirm => "Are you sure to destroy #{category.name}"
+

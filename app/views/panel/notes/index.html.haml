@@ -1,0 +1,19 @@
+%h1 Listing notes
+
+%table
+  %tr
+    %th Content
+    %th Created_at
+    %th
+    %th
+
+  - @notes.each do |note|
+    %tr
+      %td= raw note.content
+      %td= format_datetime note.created_at
+      %td= link_to 'Edit', edit_panel_note_path(note)
+      %td= link_to 'Destroy', [:panel,note], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Note', new_panel_note_path

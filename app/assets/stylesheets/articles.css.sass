@@ -1,0 +1,66 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#articles_page
+  .left
+    width: 680px
+    float: left
+  .article
+    border-bottom:  solid 2px #eee
+    .title
+      a
+        color: #4B5698
+        &:hover
+          color: white
+    .info
+      .tags
+        float: left
+        span
+          font-weight: bold
+          color: green
+      .datetime
+        float: right
+        text-align: right
+        width: auto
+    .omission
+      margin: 10px
+
+#article_form
+  label
+    width: auto
+
+#article_page
+  .title
+    h3
+      float: left
+    .prev_and_next
+      float: right
+  .info
+    .tags
+      float: left
+      span
+        font-weight: bold
+        color: green
+    .datetime
+      float: right
+
+#article_search_page
+  .article
+    margin: 5px 0
+    padding: 5px 0
+    border-bottom: dotted 1px
+    .title
+      font-size: 16px
+      .left
+        float: left
+        width: 80%
+      .datetime
+        font-size: 12px
+        float: right
+        width: 20%
+    .highlight
+      color: red
+    .info
+      padding: 5px 0
+      font-size: 12px

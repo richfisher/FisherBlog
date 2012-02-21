@@ -1,0 +1,17 @@
+.article
+  .title.clear
+    %h3
+      =link_to article.title,article_path(article)
+      -#=link_to '[Edit]',edit_article_path(article)
+  .info.clear
+    .tags
+      %span Tags:
+      =show_tags_link article.tags
+    .datetime
+      [
+      =show_category_link(article.category)
+      ]
+      =format_datetime article.created_at
+  %hr
+  .content=truncated_article_content article
+.clear

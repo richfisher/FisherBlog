@@ -1,0 +1,21 @@
+#articles_page
+  =link_to "Article List",panel_articles_path,:class => 'btn primary'
+  =link_to "Deleted",panel_deleted_articles_path,:class => 'btn info'
+  =link_to "new Article",new_panel_article_path,:class => 'btn error'
+  %table
+    %tr
+      %th Title
+      %th Created at
+      %th Version
+      %th Versions
+      %th
+      %th
+    -for article in @articles
+      %tr
+        %td=link_to article.title,article_path(article),:target => '_blank'
+        %td=format_datetime article.created_at
+        %td=article.version
+        %td=article.versions.size
+        %td=link_to "edit",edit_panel_article_path(article)
+        %td=link_to "del",panel_article_path(article),:method => :delete
+

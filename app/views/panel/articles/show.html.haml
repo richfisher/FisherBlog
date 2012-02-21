@@ -1,0 +1,23 @@
+#article_page
+  .title.clear
+    %h3
+      =show_category_link @article.category
+      &nbsp;->
+      = @article.title
+      = link_to '[Edit]', edit_article_path(@article)
+    .prev_and_next
+      =show_prev_article_link(@article)
+      =show_next_article_link(@article)
+  .info
+    .tags
+      %span Tags:
+      =@article.tag_list
+    .datetime
+      =format_datetime @article.created_at
+  %hr
+  .content
+    =raw @article.content
+
+
+  %hr
+  = link_to 'Back', articles_path

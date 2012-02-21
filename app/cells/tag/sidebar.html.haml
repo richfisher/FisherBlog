@@ -1,0 +1,5 @@
+.block
+  %h5 Tags
+  -for tag in @tags
+    =link_to tag[0],tag_path(tag[0]),:style=>"font-size:#{tag[1]}px"
+    &nbsp;

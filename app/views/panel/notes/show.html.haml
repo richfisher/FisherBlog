@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = @note.content
+
+= link_to 'Edit', edit_panel_note_path(@note)
+\|
+= link_to 'Back', panel_notes_path

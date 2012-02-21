@@ -1,0 +1,16 @@
+#articles_page
+  =link_to "Article List",panel_articles_path,:class => 'btn primary'
+  =link_to "Deleted",panel_deleted_articles_path,:class => 'btn info'
+  =link_to "new Article",new_panel_article_path,:class => 'btn error'
+  %table
+    %tr
+      %th Title
+      %th
+      %th
+    -for article in @articles
+      %tr
+        %td=link_to article.title,panel_deleted_article_path(article.id)
+        %td=link_to "restore",restore_panel_deleted_article_path(article.id)
+        %td=link_to "destroy",panel_deleted_article_path(article.id),:method => :delete,
+                              :confirm => "Are you sure to destroy #{article.title}"
+

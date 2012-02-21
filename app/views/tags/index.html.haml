@@ -1,0 +1,12 @@
+#tags_page
+  %h2 Tags
+  %br
+  %table
+    %tr
+      %th Name
+      %th frequency
+    -for tag in @tags
+      %tr
+        %td=tag[0]
+        %td=tag[1]
+
